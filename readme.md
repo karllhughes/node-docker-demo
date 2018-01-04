@@ -10,12 +10,7 @@ This is a simple application to demonstrate using Docker for local NodeJS app de
 
 - Clone this repo: `git clone https://github.com/karllhughes/node-docker-demo.git`
   - Note: The `master` branch has all the Docker-related files included, while the `start-here` branch does not. If you plan on doing the tutorial written for Javascript January, use the `start-here` branch, but if you want something that works right away, use the `master` branch.
-- Make sure Docker is running and that you're using version 17+: `docker -v`
-
-  ```bash
-  Docker version 17.12.0-ce-rc4
-  ```
-
+- Make sure Docker is running and that you're using version 17+ by running: `docker -v`
 - Run `docker build -t node-docker .` to build a local version of the image.
 - Start a postgres database container _before_ you start the application: `docker run -d --rm -p 5432:5432 -e POSTGRES_USER=admin -v $(pwd)/.data:/var/lib/postgresql/data -v $(pwd)/sql:/sql --name nd-db postgres:9.6`
   - Wait a few seconds for the database to boot up before running any queries on it, especially if this is your first time running the application.
