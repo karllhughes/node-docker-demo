@@ -1,0 +1,19 @@
+{
+  "name": "node-docker",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.2",
+    "hbs": "~4.0.1",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.13.3",
+    "pg": "^6.4.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "~4.28.6",
+    "serve-favicon": "~2.4.5"
+  }
+}
