@@ -14,8 +14,8 @@ This is a simple application to demonstrate using Docker for local NodeJS app de
 - Run `docker build -t node-docker .` to build a local version of the image.
 - Start a postgres database container _before_ you start the application: `docker run -d --rm -p 5432:5432 -e POSTGRES_USER=admin -v $(pwd)/.data:/var/lib/postgresql/data -v $(pwd)/sql:/sql --name nd-db postgres:9.6`
   - Wait a few seconds for the database to boot up before running any queries on it, especially if this is your first time running the application.
-- If it's your first time, run the migrations to create the database table: `docker exec -it nd-db psql admin admin -f /sql/migrations.sql`
-- You can also seed the database with dummy date using: `docker exec -it nd-db psql admin admin -f /sql/seeds.sql`
+- If it's your first time, run the migrations to create the database table: `docker exec nd-db psql admin admin -f /sql/migrations.sql`
+- You can also seed the database with dummy date using: `docker exec nd-db psql admin admin -f /sql/seeds.sql`
 - Now you can run the application using Docker: `docker run --rm -p 3000:3000 -d -v $(pwd)/app:/src/app -v $(pwd)/public:/src/public --link nd-db --name nd-app node-docker`
 - Check that the containers are running by typing `docker ps` and then navigating to `http://localhost:3000/` in your browser.
 - To shut the application down, enter the command `docker stop nd-app nd-db`
