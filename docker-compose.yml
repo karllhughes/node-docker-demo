@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  web-app:
+    build: .
+    volumes:
+      - ./app:/src/app
+      - ./public:/src/public
+    ports:
+      - 3000:3000
+    links:
+      - db:nd-db
+  db:
+    image: postgres:9.6
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+    volumes:
+      - ./.data:/var/lib/postgresql/data
+      - ./sql:/sql
