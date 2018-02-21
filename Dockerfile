@@ -2,23 +2,25 @@
 FROM node:9
 
 # Create base directory
-RUN mkdir /base
+RUN mkdir /src
 
 # Specify the "working directory" for the rest of the Dockerfile
-WORKDIR /base
+WORKDIR /src
 
 # Install packages using NPM 5 (bundled with the node:9 image)
-COPY ./package.json /base/package.json
-COPY ./package-lock.json /base/package-lock.json
-RUN npm install --silent
+COPY ./package.json /src/package.json
+COPY ./package-lock.json /src/package-lock.json
+RUN npm install --silent --dev
 
 # Add application code
-COPY ./app /base/app
-COPY ./bin /base/bin
-COPY ./public /base/public
+COPY ./src /src/src
+COPY ./app /src/app
+COPY ./bin /src/bin
+COPY ./public /src/public
 
-# Add the nodemon configuration file
-COPY ./nodemon.json /base/nodemon.json
+# Add the nodemon and webpack configuration files
+COPY ./nodemon.json /src/nodemon.json
+COPY ./webpack.config.js /src/webpack.config.js
 
 # Set environment to "development" by default
 ENV NODE_ENV development

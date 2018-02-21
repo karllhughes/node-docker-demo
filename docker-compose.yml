@@ -3,10 +3,10 @@ services:
   backend:
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: Dockerfile
     volumes:
-      - ./app:/base/app
-      - ./public:/base/public
+      - ./app:/src/app
+      - ./public:/src/public
     ports:
       - 3000:3000
     links:
@@ -23,7 +23,8 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile.frontend
+      dockerfile: Dockerfile
     volumes:
-      - ./src:/base/src
-      - ./public:/base/public
+      - ./src:/src/src
+      - ./public:/src/public
+    command: "node_modules/.bin/webpack --watch"
