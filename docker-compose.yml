@@ -1,10 +1,12 @@
 version: '3.5'
 services:
-  web-app:
-    build: .
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
     volumes:
-      - ./app:/src/app
-      - ./public:/src/public
+      - ./app:/base/app
+      - ./public:/base/public
     ports:
       - 3000:3000
     links:
@@ -18,3 +20,10 @@ services:
     volumes:
       - ./.data:/var/lib/postgresql/data
       - ./sql:/sql
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    volumes:
+      - ./src:/base/src
+      - ./public:/base/public

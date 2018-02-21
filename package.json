@@ -10,10 +10,17 @@
     "express": "~4.16.2",
     "hbs": "~4.0.1",
     "morgan": "~1.9.0",
-    "nodemon": "^1.13.3",
+    "nodemon": "^1.15.1",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
-    "sequelize": "~4.28.6",
+    "sequelize": "^4.28.8",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.20.2",
+    "webpack": "^3.11.0"
   }
 }
