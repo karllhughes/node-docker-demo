@@ -1,9 +1,6 @@
 # Specifies the base image we're extending
 FROM node:9
 
-# Create base directory
-RUN mkdir /src
-
 # Specify the "working directory" for the rest of the Dockerfile
 WORKDIR /src
 
